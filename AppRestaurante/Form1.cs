@@ -27,5 +27,43 @@ namespace AppRestaurante
             Instancia.Hide();
             FrmCantidadPersonas.Instancia.Show();
         }
+        private void BtnMesa2_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+        private void BtnMesa3_Click_1(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+        private void BtnMesa4_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+
+        private void BtnMesa5_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+        private void BtnMesa6_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+
+        private void BtnMesa7_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
+
+        private void btnMesa8_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();
+        }
     }
 }

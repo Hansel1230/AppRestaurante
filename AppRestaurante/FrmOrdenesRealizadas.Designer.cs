@@ -80,6 +80,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmOrdenesRealizadas";
             this.Text = "Ordenes Realizadas";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmOrdenesRealizadas_FormClosed);
             this.Load += new System.EventHandler(this.FrmOrdenesRealizadas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

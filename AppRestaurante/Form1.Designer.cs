@@ -101,6 +101,7 @@ namespace AppRestaurante
             this.btnMesa8.TabIndex = 4;
             this.btnMesa8.Text = "Mesa 8";
             this.btnMesa8.UseVisualStyleBackColor = false;
+            this.btnMesa8.Click += new System.EventHandler(this.btnMesa8_Click);
             // 
             // BtnMesa4
             // 
@@ -124,6 +125,7 @@ namespace AppRestaurante
             this.BtnMesa7.TabIndex = 3;
             this.BtnMesa7.Text = "Mesa 7";
             this.BtnMesa7.UseVisualStyleBackColor = false;
+            this.BtnMesa7.Click += new System.EventHandler(this.BtnMesa7_Click);
             // 
             // BtnMesa1
             // 
@@ -160,6 +162,7 @@ namespace AppRestaurante
             this.BtnMesa5.TabIndex = 1;
             this.BtnMesa5.Text = "Mesa 5";
             this.BtnMesa5.UseVisualStyleBackColor = false;
+            this.BtnMesa5.Click += new System.EventHandler(this.BtnMesa5_Click);
             // 
             // BtnMesa2
             // 
@@ -183,6 +186,7 @@ namespace AppRestaurante
             this.BtnMesa3.TabIndex = 2;
             this.BtnMesa3.Text = "Mesa 3";
             this.BtnMesa3.UseVisualStyleBackColor = false;
+            this.BtnMesa3.Click += new System.EventHandler(this.BtnMesa3_Click_1);
             // 
             // tableLayoutPanel3
             // 
@@ -195,7 +199,7 @@ namespace AppRestaurante
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 235F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 238F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(507, 238);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -229,22 +233,6 @@ namespace AppRestaurante
             this.ResumeLayout(false);
 
         }
-
-        private void BtnMesa2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void BtnMesa6_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void BtnMesa4_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

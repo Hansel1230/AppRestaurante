@@ -23,5 +23,11 @@ namespace AppRestaurante
         {
 
         }
+
+        private void FrmOrdenesRealizadas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Instancia.Hide();
+            FomMesas.Instancia.Show();
+        }
     }
 }

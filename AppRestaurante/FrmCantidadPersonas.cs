@@ -39,6 +39,15 @@ namespace AppRestaurante
         {
             Instancia.Hide();
             FrmOrdenes.Instancia.Show();
+            /* error al borrar el objeto
+            if (FrmOrdenes.Instancia != null)
+            {
+                FrmOrdenes.Instancia.Show();
+            }
+            else
+            {
+                FrmOrdenes();
+            }*/
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
