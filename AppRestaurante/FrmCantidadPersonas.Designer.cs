@@ -32,8 +32,8 @@ namespace AppRestaurante
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.LblCantidad = new System.Windows.Forms.Label();
             this.LblCantidadPersonas = new System.Windows.Forms.Label();
+            this.LblCantidad = new System.Windows.Forms.Label();
             this.TxtCantidad = new System.Windows.Forms.TextBox();
             this.BtnEnviar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
@@ -58,21 +58,10 @@ namespace AppRestaurante
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.37194F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.73942F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(581, 449);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // LblCantidad
-            // 
-            this.LblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblCantidad.AutoSize = true;
-            this.LblCantidad.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCantidad.Location = new System.Drawing.Point(182, 112);
-            this.LblCantidad.Name = "LblCantidad";
-            this.LblCantidad.Size = new System.Drawing.Size(105, 28);
-            this.LblCantidad.TabIndex = 3;
-            this.LblCantidad.Text = "Cantidad:";
-            this.LblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LblCantidadPersonas
             // 
@@ -89,12 +78,28 @@ namespace AppRestaurante
             this.LblCantidadPersonas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.LblCantidadPersonas.Click += new System.EventHandler(this.LblCantidadPersonas_Click);
             // 
+            // LblCantidad
+            // 
+            this.LblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblCantidad.AutoSize = true;
+            this.LblCantidad.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCantidad.Location = new System.Drawing.Point(182, 112);
+            this.LblCantidad.Name = "LblCantidad";
+            this.LblCantidad.Size = new System.Drawing.Size(105, 28);
+            this.LblCantidad.TabIndex = 3;
+            this.LblCantidad.Text = "Cantidad:";
+            this.LblCantidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TxtCantidad
             // 
             this.TxtCantidad.Location = new System.Drawing.Point(293, 115);
             this.TxtCantidad.Name = "TxtCantidad";
             this.TxtCantidad.Size = new System.Drawing.Size(285, 20);
             this.TxtCantidad.TabIndex = 5;
+            this.TxtCantidad.Click += new System.EventHandler(this.TxtCantidad_Click);
+            this.TxtCantidad.TextChanged += new System.EventHandler(this.TxtCantidad_TextChanged);
+            this.TxtCantidad.Enter += new System.EventHandler(this.TxtCantidad_Enter);
+            this.TxtCantidad.Leave += new System.EventHandler(this.TxtCantidad_Leave);
             // 
             // BtnEnviar
             // 
@@ -133,8 +138,10 @@ namespace AppRestaurante
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(581, 449);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmCantidadPersonas";
             this.Text = "FrmCantidadPersonas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCantidadPersonas_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmCantidadPersonas_FormClosed);
             this.Load += new System.EventHandler(this.FrmCantidadPersonas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -223,8 +223,10 @@ namespace AppRestaurante
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 692);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FomMesas";
             this.Text = "Mesas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FomMesas_FormClosing);
             this.Load += new System.EventHandler(this.FomMesas_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

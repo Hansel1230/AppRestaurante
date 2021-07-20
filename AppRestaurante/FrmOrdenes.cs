@@ -25,6 +25,11 @@ namespace AppRestaurante
             Instancia.Hide();
             FomMesas.Instancia.Show();
         }
+        private void FrmOrdenes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
         private void FrmOrdenes_Load(object sender, EventArgs e)
         {
             TxtNombre.Text = "Ingrese nombre:";
@@ -41,12 +46,12 @@ namespace AppRestaurante
         {
             if (TxtNombre.Text == "")
             {
-                TxtNombre.Text = "Ingrese Nombre";
+                TxtNombre.Text = "Ingrese nombre:";
             }
         }
         private void TxtNombre_Enter(object sender, EventArgs e)
         {
-            if (TxtNombre.Text == "Ingrese Nombre" )
+            if (TxtNombre.Text == "Ingrese nombre:")
             {
                 TxtNombre.Text = "";
             }
@@ -212,20 +217,76 @@ namespace AppRestaurante
             CbxBebida.Items.Add(TeOpcion);
             CbxBebida.Items.Add(CervezaOpcion);
             CbxBebida.SelectedItem = OpcionPorDefecto;
+            
         }
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            Instancia.Hide();
-            FrmOrdenesRealizadas.Instancia.Show();
+            selectOpcionCBx();
+            LimpiarCampos();
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             Instancia.Hide();
             FrmCantidadPersonas.Instancia.Show();
+
         }
- 
+
+
+        private void selectOpcionCBx()
+        {
+            bool isvalid = true;
+            try
+            {
+                ComboBoxItem SeleccionarEntrada = CbxEntrada.SelectedItem as ComboBoxItem;
+                ComboBoxItem SeleccionarPlatoFuerte = CbxPlatoFuerte.SelectedItem as ComboBoxItem;
+                ComboBoxItem SeleccionarBebida = CbxBebida.SelectedItem as ComboBoxItem;
+                ComboBoxItem SeleccionarPostre = CbxPostre.SelectedItem as ComboBoxItem;
+
+                if (string.IsNullOrEmpty(TxtNombre.Text) || (TxtNombre.Text == "Ingrese nombre:"))
+                {
+                    MessageBox.Show("Debe ingresar un Nombre", "Advertencia");
+                    isvalid = false;
+                }
+                else if (SeleccionarEntrada.Value == null)
+                {
+                    MessageBox.Show("Debe seleccionar una Entrada", "Advertencia");
+                    isvalid = false;
+                }
+                else if (SeleccionarPlatoFuerte.Value == null)
+                {
+                    MessageBox.Show("Debe seleccionar un Plato Fuerte", "Advertencia");
+                    isvalid = false;
+                }
+                else if (SeleccionarBebida.Value == null)
+                {
+                    MessageBox.Show("Debe seleccionar una Bebida", "Advertencia");
+                    isvalid = false;
+                }
+                else if (SeleccionarPostre.Value == null)
+                {
+                    MessageBox.Show("Debe seleccionar un Postre", "Advertencia");
+                    isvalid = false;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Debe colocar un Nombre sin valores numericos", "Advertencia");
+            }
+            if (isvalid)
+            {
+                MessageBox.Show("quedan: " + --FrmCantidadPersonas.Cantidad, "Advertencia");
+                FrmOrdenesRealizadas.Instancia.actualizarLboxOrdenes(TxtNombre.Text, CbxEntrada.Text, CbxPlatoFuerte.Text, CbxBebida.Text, CbxPostre.Text);
+
+                if (FrmCantidadPersonas.Cantidad == 0)
+                {
+                    Instancia.Hide();
+                    FrmOrdenesRealizadas.Instancia.Show();
+                }
+            }
+        }
+
         private void TxtNombre_TextChanged(object sender, EventArgs e)
         {
 
@@ -235,7 +296,14 @@ namespace AppRestaurante
         {
 
         }
-
+        public void LimpiarCampos()
+        {
+            TxtNombre.Text = "";
+            CbxEntrada.Text = "";
+            CbxPlatoFuerte.Text = "";
+            CbxBebida.Text = "";
+            CbxPostre.Text = "";
+        }
         
     }
 }

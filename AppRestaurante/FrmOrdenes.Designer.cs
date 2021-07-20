@@ -43,7 +43,7 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
-            this.LblOrdenes = new System.Windows.Forms.Label();
+            this.LblOrden = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -58,7 +58,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.BtnGuardar, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.BtnCancelar, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.LblOrdenes, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LblOrden, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -248,19 +248,19 @@
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
-            // LblOrdenes
+            // LblOrden
             // 
-            this.LblOrdenes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LblOrdenes.AutoSize = true;
-            this.tableLayoutPanel1.SetColumnSpan(this.LblOrdenes, 2);
-            this.LblOrdenes.Font = new System.Drawing.Font("Palatino Linotype", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOrdenes.ForeColor = System.Drawing.Color.Maroon;
-            this.LblOrdenes.Location = new System.Drawing.Point(307, 0);
-            this.LblOrdenes.Name = "LblOrdenes";
-            this.LblOrdenes.Size = new System.Drawing.Size(125, 49);
-            this.LblOrdenes.TabIndex = 4;
-            this.LblOrdenes.Text = "Orden";
-            this.LblOrdenes.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LblOrden.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.LblOrden.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.LblOrden, 2);
+            this.LblOrden.Font = new System.Drawing.Font("Palatino Linotype", 27.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblOrden.ForeColor = System.Drawing.Color.Maroon;
+            this.LblOrden.Location = new System.Drawing.Point(307, 0);
+            this.LblOrden.Name = "LblOrden";
+            this.LblOrden.Size = new System.Drawing.Size(125, 49);
+            this.LblOrden.TabIndex = 4;
+            this.LblOrden.Text = "Orden";
+            this.LblOrden.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // FrmOrdenes
             // 
@@ -269,8 +269,10 @@
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(740, 688);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmOrdenes";
             this.Text = "Ordenes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmOrdenes_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmOrdenes_FormClosed);
             this.Load += new System.EventHandler(this.FrmOrdenes_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -290,7 +292,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Label LblOrdenes;
         private System.Windows.Forms.Label LblPostre;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblPlatoFuerte;
@@ -301,5 +302,6 @@
         private System.Windows.Forms.ComboBox CbxPlatoFuerte;
         private System.Windows.Forms.ComboBox CbxEntrada;
         private System.Windows.Forms.TextBox TxtNombre;
+        private System.Windows.Forms.Label LblOrden;
     }
 }

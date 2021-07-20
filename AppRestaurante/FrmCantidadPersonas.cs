@@ -13,6 +13,8 @@ namespace AppRestaurante
     public partial class FrmCantidadPersonas : Form
     {
         public static FrmCantidadPersonas Instancia { get; } = new FrmCantidadPersonas();
+        public static int Cantidad { get; set; }
+        public bool isvalid = true;
 
         private FrmCantidadPersonas()
         {
@@ -21,7 +23,7 @@ namespace AppRestaurante
          
         private void FrmCantidadPersonas_Load(object sender, EventArgs e)
         {
-
+            TxtCantidad.Text = "Ingrese Cantidad:";
         }
 
         private void FrmCantidadPersonas_FormClosed(object sender, FormClosedEventArgs e)
@@ -37,19 +39,25 @@ namespace AppRestaurante
 
         private void BtnEnviar_Click(object sender, EventArgs e)
         {
-            Instancia.Hide();
-            FrmOrdenes.Instancia.Show();
-            /* error al borrar el objeto
-            if (FrmOrdenes.Instancia != null)
+            isvalid = true;
+            if (string.IsNullOrEmpty(TxtCantidad.Text) || (TxtCantidad.Text == "Ingrese Cantidad:"))
+            {              
+                MessageBox.Show("Debe ingresar una Cantidad", "Advertencia");
+                isvalid = false;
+            }
+            else if (TxtCantidad.Text !="1"&& TxtCantidad.Text != "2"&& TxtCantidad.Text != "3"&& TxtCantidad.Text != "4")
             {
+                MessageBox.Show("Debe ingresar una Cantidad entre 1 y 4 incluyendo a estas", "Advertencia");
+                isvalid = false;
+            }
+
+            if (isvalid)
+            {
+                Cantidad = Convert.ToInt32(TxtCantidad.Text);
+                Instancia.Hide();
                 FrmOrdenes.Instancia.Show();
             }
-            else
-            {
-                FrmOrdenes();
-            }*/
         }
-
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             CloseForm();
@@ -60,6 +68,42 @@ namespace AppRestaurante
             FomMesas.Instancia.Show();
         }
 
-       
+        private void FrmCantidadPersonas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void TxtCantidad_Click(object sender, EventArgs e)
+        {
+            if (TxtCantidad.Text == "Ingrese Cantidad:")
+            {
+                TxtCantidad.Text = "";
+            }
+        }
+
+        private void TxtCantidad_Leave(object sender, EventArgs e)
+        {
+            if (TxtCantidad.Text == "")
+            {
+                TxtCantidad.Text = "Ingrese Cantidad:";
+            }
+        }
+
+        private void TxtCantidad_Enter(object sender, EventArgs e)
+        {
+            if (TxtCantidad.Text == "Ingrese Cantidad:")
+            {
+                TxtCantidad.Text = "";
+            }
+        }
+
+        private void TxtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            //Cantidad =Convert.ToInt32(TxtCantidad.Text);
+            //string b = TxtCantidad.Text;
+            //int a;
+            //a=Convert.ToInt32(b);
+            //Cantidad =a;
+        }
     }
 }
