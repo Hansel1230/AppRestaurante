@@ -14,71 +14,63 @@ namespace AppRestaurante
     {
         public static FrmOrdenesRealizadas Instancia { get; } = new FrmOrdenesRealizadas();
         public static int determinante { get; set; }
+
         private FrmOrdenesRealizadas()
         {
             InitializeComponent();
         }
-
         private void FrmOrdenesRealizadas_Load(object sender, EventArgs e)
         {
 
         }
-
         private void FrmOrdenesRealizadas_FormClosed(object sender, FormClosedEventArgs e)
         {
             Instancia.Hide();
             FomMesas.Instancia.Show();
         }
-
         private void FrmOrdenesRealizadas_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
         }
-
         private void BtnVolver_Click(object sender, EventArgs e)
         {
             Instancia.Hide();
             FomMesas.Instancia.Show();
         }
-
         private void BtnSalir_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(1);
-            //System.Windows.Forms.Application.Exit();
-            //Application.Exit(FomMesas.Instancia);
         }
-
         private void LboxOrdenes_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-
         public  void actualizarLboxOrdenes(string nombre, string entrada, string platoFuerte, string bebida, string postre)
         {
             switch (determinante)
             {
-                case 1:
+                case (int)Enum.Mesa1:
                     agregaLbox("Mesa 1", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 2:
+                case (int)Enum.Mesa2:
                     agregaLbox("Mesa 2", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 3:
+                case (int)Enum.Mesa3:
                     agregaLbox("Mesa 3", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 4:
+                case (int)Enum.Mesa4:
                     agregaLbox("Mesa 4", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 5:
+                case (int)Enum.Mesa5:
                     agregaLbox("Mesa 5", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 6:
+                case (int)Enum.Mesa6:
                     agregaLbox("Mesa 6", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 7:
+                case (int)Enum.Mesa7:
                     agregaLbox("Mesa 7", nombre, entrada, platoFuerte, bebida, postre);
                     break;
-                case 8:
+                case (int)Enum.Mesa8:
                     agregaLbox("Mesa 8",nombre,entrada,platoFuerte,bebida,postre);
                     break;
             }

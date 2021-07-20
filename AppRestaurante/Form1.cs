@@ -17,15 +17,12 @@ namespace AppRestaurante
         private FomMesas()
         {
             InitializeComponent();
-            
         }
         private void FomMesas_Load(object sender, EventArgs e)
         {
-
         }
         private void FomMesas_FormClosing(object sender, FormClosingEventArgs e)
         {
-
         }
         private void BtnMesa1_Click(object sender, EventArgs e)
         {

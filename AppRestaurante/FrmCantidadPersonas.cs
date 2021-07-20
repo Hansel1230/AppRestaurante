@@ -20,23 +20,19 @@ namespace AppRestaurante
         {
             InitializeComponent();
         }
-         
         private void FrmCantidadPersonas_Load(object sender, EventArgs e)
         {
-            TxtCantidad.Text = "Ingrese Cantidad:";
+            TxtCantidad.Text ="Ingrese Cantidad:";
+            
         }
-
         private void FrmCantidadPersonas_FormClosed(object sender, FormClosedEventArgs e)
         {
             FomMesas.Instancia.Show();
         }
-
-        
         private void LblCantidadPersonas_Click(object sender, EventArgs e)
         {
 
         }
-
         private void BtnEnviar_Click(object sender, EventArgs e)
         {
             isvalid = true;
@@ -50,29 +46,23 @@ namespace AppRestaurante
                 MessageBox.Show("Debe ingresar una Cantidad entre 1 y 4 incluyendo a estas", "Advertencia");
                 isvalid = false;
             }
-
             if (isvalid)
             {
                 Cantidad = Convert.ToInt32(TxtCantidad.Text);
                 Instancia.Hide();
                 FrmOrdenes.Instancia.Show();
+                TxtCantidad.Text = "1";
             }
         }
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             CloseForm();
+            TxtCantidad.Text = "1";
         }
-        private void CloseForm()
-        {
-            Instancia.Hide();
-            FomMesas.Instancia.Show();
-        }
-
         private void FrmCantidadPersonas_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
         }
-
         private void TxtCantidad_Click(object sender, EventArgs e)
         {
             if (TxtCantidad.Text == "Ingrese Cantidad:")
@@ -80,30 +70,22 @@ namespace AppRestaurante
                 TxtCantidad.Text = "";
             }
         }
-
         private void TxtCantidad_Leave(object sender, EventArgs e)
         {
-            if (TxtCantidad.Text == "")
-            {
-                TxtCantidad.Text = "Ingrese Cantidad:";
-            }
+            
         }
-
         private void TxtCantidad_Enter(object sender, EventArgs e)
         {
-            if (TxtCantidad.Text == "Ingrese Cantidad:")
-            {
-                TxtCantidad.Text = "";
-            }
+            
         }
-
         private void TxtCantidad_TextChanged(object sender, EventArgs e)
         {
-            //Cantidad =Convert.ToInt32(TxtCantidad.Text);
-            //string b = TxtCantidad.Text;
-            //int a;
-            //a=Convert.ToInt32(b);
-            //Cantidad =a;
+            
+        }
+        private void CloseForm()
+        {
+            Instancia.Hide();
+            FomMesas.Instancia.Show();
         }
     }
 }

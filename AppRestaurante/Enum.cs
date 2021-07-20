@@ -16,10 +16,5 @@ namespace AppRestaurante
         Mesa6,
         Mesa7,
         Mesa8
-        
-
-
-        
-
     }
 }

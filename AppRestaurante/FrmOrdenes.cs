@@ -13,8 +13,7 @@ namespace AppRestaurante
 {
     public partial class FrmOrdenes : Form
     {
-        public static FrmOrdenes Instancia { get; } = new FrmOrdenes();
-
+        public static FrmOrdenes Instancia { get; } = new FrmOrdenes();    
         private FrmOrdenes()
         {
             InitializeComponent();
@@ -23,18 +22,18 @@ namespace AppRestaurante
         private void FrmOrdenes_FormClosed(object sender, FormClosedEventArgs e)
         {
             Instancia.Hide();
-            FomMesas.Instancia.Show();
+            FomMesas.Instancia.Show();        
         }
         private void FrmOrdenes_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
         }
-
         private void FrmOrdenes_Load(object sender, EventArgs e)
         {
             TxtNombre.Text = "Ingrese nombre:";
             LoadCombobox();
-        }     
+            LblInfoCantidad.Text = "";         
+        }
         private void TxtNombre_Click(object sender, EventArgs e)
         {
             if (TxtNombre.Text == "Ingrese nombre:")
@@ -56,6 +55,17 @@ namespace AppRestaurante
                 TxtNombre.Text = "";
             }
         }
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            selectOpcionCBx();
+
+        }
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            Instancia.Hide();
+            FrmCantidadPersonas.Instancia.Show();                        
+            LblInfoCantidad.Text ="";
+        }
         private void TxtNombre_MouseLeave(object sender, EventArgs e)
         {
             
@@ -64,8 +74,14 @@ namespace AppRestaurante
         {
 
         }
+        private void TxtNombre_TextChanged(object sender, EventArgs e)
+        {
 
-        
+        }
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
         //llenar combobox
         private void LoadCombobox()
         {
@@ -73,7 +89,7 @@ namespace AppRestaurante
             OpcionPorDefecto.Text = "selecione una opcion ";
             OpcionPorDefecto.Value = null;
 
-            //Entrada
+            //comboboxEntrada
 
             ComboBoxItem FalafelOpcion = new ComboBoxItem();
             FalafelOpcion.Text = "Falafel";
@@ -103,7 +119,7 @@ namespace AppRestaurante
             CbxEntrada.Items.Add(CebicheOpcion);
             CbxEntrada.SelectedItem = OpcionPorDefecto;
 
-            //Plato fuerte 
+            //comboboxPlato fuerte 
 
             ComboBoxItem ChuletasOpcion = new ComboBoxItem();
             ChuletasOpcion.Text = "Chuletas al albañil";
@@ -158,7 +174,7 @@ namespace AppRestaurante
             CbxPlatoFuerte.Items.Add(CamaronesOpcion);
             CbxPlatoFuerte.SelectedItem = OpcionPorDefecto;
 
-            //postres
+            //comboboxpostres
 
             ComboBoxItem GranolaOpcion = new ComboBoxItem();
             GranolaOpcion.Text = "Granola";
@@ -188,7 +204,7 @@ namespace AppRestaurante
             CbxPostre.Items.Add(QuequeZanOpcion);
             CbxPostre.SelectedItem = OpcionPorDefecto;
 
-            // bebidas
+            //comboboxbebidas
 
             ComboBoxItem AguaMinOpcion = new ComboBoxItem();
             AguaMinOpcion.Text = "Agua Mineral";
@@ -216,24 +232,8 @@ namespace AppRestaurante
             CbxBebida.Items.Add(SangriaOpcion);
             CbxBebida.Items.Add(TeOpcion);
             CbxBebida.Items.Add(CervezaOpcion);
-            CbxBebida.SelectedItem = OpcionPorDefecto;
-            
+            CbxBebida.SelectedItem = OpcionPorDefecto;           
         }
-
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            selectOpcionCBx();
-            LimpiarCampos();
-        }
-
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            Instancia.Hide();
-            FrmCantidadPersonas.Instancia.Show();
-
-        }
-
-
         private void selectOpcionCBx()
         {
             bool isvalid = true;
@@ -276,9 +276,10 @@ namespace AppRestaurante
             }
             if (isvalid)
             {
-                MessageBox.Show("quedan: " + --FrmCantidadPersonas.Cantidad, "Advertencia");
                 FrmOrdenesRealizadas.Instancia.actualizarLboxOrdenes(TxtNombre.Text, CbxEntrada.Text, CbxPlatoFuerte.Text, CbxBebida.Text, CbxPostre.Text);
+                LblInfoCantidad.Text = Convert.ToString(--FrmCantidadPersonas.Cantidad);
 
+                LimpiarCampos();
                 if (FrmCantidadPersonas.Cantidad == 0)
                 {
                     Instancia.Hide();
@@ -286,24 +287,14 @@ namespace AppRestaurante
                 }
             }
         }
-
-        private void TxtNombre_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         public void LimpiarCampos()
-        {
-            TxtNombre.Text = "";
-            CbxEntrada.Text = "";
-            CbxPlatoFuerte.Text = "";
-            CbxBebida.Text = "";
-            CbxPostre.Text = "";
+        {           
+            TxtNombre.Text ="Ingrese nombre:";
+            CbxEntrada.Items.Clear();
+            CbxPlatoFuerte.Items.Clear();
+            CbxPostre.Items.Clear();
+            CbxBebida.Items.Clear();
+            LoadCombobox();           
         }
-        
     }
 }
